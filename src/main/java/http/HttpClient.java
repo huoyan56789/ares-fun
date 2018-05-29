@@ -66,7 +66,7 @@ public class HttpClient
     }
 
 
-    public static CloseableHttpResponse requestByPost(String url)
+    public static String requestByPost(String url)
     {
         //创建默认的HttpClient实例
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -88,23 +88,46 @@ public class HttpClient
         System.out.println("执行POST请求,url:" + httpPost.getURI());
         //执行请求
         CloseableHttpResponse httpResponse = null;
+        String result = null;
         try
         {
             httpResponse = httpClient.execute(httpPost);
+            HttpEntity entity = httpResponse.getEntity();
+            if (null != entity)
+            {
+                System.out.println("响应状态码:" + httpResponse.getStatusLine());
+                result = EntityUtils.toString(entity);
+            }
         } catch (IOException e)
         {
             e.printStackTrace();
         } finally
         {
-
+            try
+            {
+                if (null != httpClient)
+                {
+                    httpClient.close();
+                }
+                if (null != httpResponse)
+                {
+                    httpResponse.close();
+                }
+            } catch (IOException e)
+            {
+                e.printStackTrace();
+            }
         }
-        return httpResponse;
+        return result;
     }
 
     public static void main(String[] args)
     {
-        String urlWithGet = "https://www.apiopen.top/weatherApi";
-        String result = requestByGet(urlWithGet);
+//        String urlWithGet = "https://www.apiopen.top/weatherApi?city=南京";
+//        String result = requestByGet(urlWithGet);
+
+        String urlWithPost = "http://172.30.225.138:8080/m2m/common/post";
+        String result = requestByPost(urlWithPost);
         System.out.println("响应内容:" + result);
     }
 }
