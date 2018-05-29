@@ -32,6 +32,8 @@ public class HttpClient
         {
             //用Get方法发送http请求
             HttpGet httpGet = new HttpGet(url);
+            //httpGet.setHeader();添加单个消息头
+            //httpGet.setHeaders();批量添加消息头
             System.out.println("执行Get请求,url:" + httpGet.getURI());
 
             //发送get请求
@@ -85,6 +87,9 @@ public class HttpClient
             e.printStackTrace();
         }
         httpPost.setEntity(uefEntity);
+        //httpPost.setHeader();添加单个消息头
+        httpPost.setHeader("Content-Type", "application/json");
+        //httpPost.setHeaders();批量添加消息头
         System.out.println("执行POST请求,url:" + httpPost.getURI());
         //执行请求
         CloseableHttpResponse httpResponse = null;
@@ -126,6 +131,7 @@ public class HttpClient
 //        String urlWithGet = "https://www.apiopen.top/weatherApi?city=南京";
 //        String result = requestByGet(urlWithGet);
 
+        //此时的消息头Content-Type若不设置默认为application/x-www-form-urlencoded
         String urlWithPost = "http://172.30.225.138:8080/m2m/common/post";
         String result = requestByPost(urlWithPost);
         System.out.println("响应内容:" + result);
