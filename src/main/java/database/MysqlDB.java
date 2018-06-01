@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.Base64;
 import java.util.Properties;
 
 /**
@@ -32,7 +33,9 @@ public class MysqlDB
             Properties prop = new Properties();
             prop.load(inStream);
             String username = prop.getProperty("username");
+            username = new String(Base64.getDecoder().decode(username));
             String password = prop.getProperty("password");
+            password = new String(Base64.getDecoder().decode(password.replaceAll("Ares","")));
             conn = DriverManager.getConnection(url, username, password);
             ps = conn.prepareStatement(sql);
         } catch (Exception e)

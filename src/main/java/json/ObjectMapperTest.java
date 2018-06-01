@@ -28,7 +28,7 @@ public class ObjectMapperTest
             //将json字符串映射到实体的属性
             Student student = mapper.readValue(jsonString,Student.class);
             System.out.println("映射后的实体为: " + student);
-            //读取实体为String
+            //读取实体(也可以是集合)为String
             String jsonStr = mapper.writeValueAsString(student);
             System.out.println("读取实体为字符串: " + jsonStr);
 

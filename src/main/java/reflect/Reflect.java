@@ -30,7 +30,7 @@ public class Reflect
             method.invoke(love,"xue");
             System.out.println(love);
 
-            //通过构造器newInstance
+            //通过构造器newInstance生成类
             Love loveOther = (Love) clazz.getConstructor().newInstance() ;
             System.out.println(loveOther);
 
