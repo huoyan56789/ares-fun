@@ -146,7 +146,7 @@ public class HttpClient
 
     public static void main(String[] args)
     {
-        String urlWithGet = "http://172.30.225.138:8080/m2m/common/get";
+        String urlWithGet = "http://172.30.225.138:8080/common/get";
         List<Header> headerList = new LinkedList<Header>();
         Header[] headers = headerList.toArray(new Header[headerList.size()]);
         Map dataMap = new HashMap();

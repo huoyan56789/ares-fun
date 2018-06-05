@@ -33,7 +33,7 @@ public class Okhttp3
         //        headers.put("Authorization", "I love you");
         //        String result = requestByGet(urlWithGet, dataMap, headers);
 
-        String urlWithPost = "http://172.30.225.138:8080/m2m/common/post";
+        String urlWithPost = "http://172.30.225.138:8080/common/post";
         Map dataMap = new HashMap();
         dataMap.put("username", "ares");
         Map headers = new HashMap<>();
