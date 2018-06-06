@@ -4,7 +4,8 @@ import java.io.*;
 import java.net.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-public class Main {
+public class WormMain
+{
     static String sendGet(String url) {
         // 定义一个字符串用来存储网页内容
         String result = "";
