@@ -2,7 +2,7 @@
  * @author Ares
  * @date 2018/5/24 14:06
  */
-public class SWITCH
+public class SwitchDemo
 {
     public static void main(String[] args)
     {
