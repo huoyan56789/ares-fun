@@ -1,7 +1,6 @@
 package json;
 
 import com.alibaba.fastjson.JSONObject;
-import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
