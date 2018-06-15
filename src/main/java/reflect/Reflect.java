@@ -1,10 +1,11 @@
 package reflect;
 
+import entity.Love;
+import entity.Loved;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Ares
@@ -20,7 +21,7 @@ public class Reflect
              * 无参构造
              */
             //找寻该名称类文件，并加载进内存，并产生Class对象
-            Class clazz = Class.forName("reflect.Love");
+            Class clazz = Class.forName("entity.Love");
             //直接newInstance
             Love love  = (Love) clazz.newInstance();
             System.out.println(love);
@@ -38,7 +39,7 @@ public class Reflect
              * 有参构造
              */
             //通过构造器newInstance
-            Class<?> tClass = Class.forName("reflect.Loved");
+            Class<?> tClass = Class.forName("entity.Loved");
             Constructor constructor = tClass.getConstructor(String.class,Integer.class);
             Loved loved = (Loved) constructor.newInstance("ares",521);
             System.out.println(loved);

@@ -5,7 +5,7 @@ package lambda;
  * @date 2018/5/31 15:09
  */
 
-import json.Student;
+import entity.Student;
 
 import java.util.Arrays;
 import java.util.HashMap;

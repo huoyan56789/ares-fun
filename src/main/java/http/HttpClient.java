@@ -15,6 +15,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -146,25 +147,25 @@ public class HttpClient
 
     public static void main(String[] args)
     {
-        String urlWithGet = "http://172.30.225.138:8080/common/get";
-        List<Header> headerList = new LinkedList<Header>();
-        Header[] headers = headerList.toArray(new Header[headerList.size()]);
-        Map dataMap = new HashMap();
-//        dataMap.put("username", "ares");
-//        dataMap.put("password", "love");
-        String result = requestByGet(urlWithGet, dataMap, headers);
-
-//        String urlWithPost = "http://172.30.225.138:8080/m2m/common/post";
-////        //此时的消息头Content-Type若不设置默认为application/x-www-form-urlencoded
+//        String urlWithGet = "http://172.30.225.138:8080/common/get";
 //        List<Header> headerList = new LinkedList<Header>();
-//        headerList.add(new HeaderImpl("Content-Type", "application/json"));
-//        headerList.add(new HeaderImpl("Accept", "application/json"));
 //        Header[] headers = headerList.toArray(new Header[headerList.size()]);
-//
 //        Map dataMap = new HashMap();
 //        dataMap.put("username", "ares");
 //        dataMap.put("password", "love");
-//        String result = requestByPost(urlWithPost, dataMap, headers);
+//        String result = requestByGet(urlWithGet, dataMap, headers);
+
+        String urlWithPost = "http://172.30.225.138:8080/common/post";
+//        //此时的消息头Content-Type若不设置默认为application/x-www-form-urlencoded
+        List<Header> headerList = new LinkedList<Header>();
+        headerList.add(new HeaderImpl("Content-Type", "application/json"));
+        headerList.add(new HeaderImpl("Accept", "application/json"));
+        Header[] headers = headerList.toArray(new Header[headerList.size()]);
+
+        Map dataMap = new HashMap();
+        dataMap.put("username", "ares");
+        dataMap.put("password", "love");
+        String result = requestByPost(urlWithPost, dataMap, headers);
 
         System.out.println("响应内容:" + result);
     }

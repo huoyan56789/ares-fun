@@ -1,5 +1,7 @@
 package reflect;
 
+import entity.Love;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -33,7 +35,7 @@ public class Classresolve
         Class classForName = null;
         try
         {
-            classForName = Class.forName("reflect.Love");
+            classForName = Class.forName("entity.Love");
             Constructor [] constructorsForName = clazz.getConstructors();
             System.out.println("通过Class的静态方法获取的class: " + classForName);
             Arrays.stream(constructorsForName).forEach(i -> System.out.println("我是构造方法: " + i));

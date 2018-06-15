@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "./log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- 控制台 -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss,SSS} (%F:%L) %-5p %Z - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- 系统日志文件 -->
+	<appender name="LOGFILE" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/app/esb/log/OSN/OSN.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="100MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss,SSS} (%F:%L) %-5p %Z - %m%n" />
+		</layout>
+	</appender>
+	<!-- 告警信息日志文件 -->
+	<appender name="alarmInfo" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/app/esb/log/OSN/OSN_AlarmInfo.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="100MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} (%F:%L) %-5p %Z - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- 发起节点传输日志 -->
+	<appender name="RECORD_TRANSPORT_LOG" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/app/esb/log/OSN/OSN_Transport_Log.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="100MB" />
+		<param name="MaxBackupIndex" value="20" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss,SSS} (%F:%L) %-5p %Z - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ASYN_RECORD_TRANSPORT_LOG" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="1024" />
+		<param name="LocationInfo" value="true" />
+		<appender-ref ref="RECORD_TRANSPORT_LOG" />
+	</appender>
+
+	<!-- OSN响应时间日志 -->
+	<appender name="transRspOsn" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/app/esb/log/OSN/OSN_TransRspLog.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="100MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+	</appender>
+
+	<!-- OSN错误日志 -->
+	<appender name="osnErrDetail" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/app/esb/log/OSN/OSNErrDetail.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="100MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+	</appender>
+
+	<!-- OSN记录中心超时日志(主要用来统计OSN发现中心超时但是中心已处理响应的情况) -->
+	<appender name="osnSCTimeout" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/app/esb/log/OSN/OSNscTimeout.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="100MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+	</appender>
+<!-- tlog由于约束出错入库失败时直接入此文件,此文件不做导入处理 -->
+	<appender name="transConstErrLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/app/esb/log/OSN/OSN_TransConstErrLog.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="100MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+	</appender>
+	<!-- 异步系统日志 -->
+	<appender name="ASYN_LOGFILE" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="1024" />
+		<param name="LocationInfo" value="true" />
+		<appender-ref ref="LOGFILE" />
+	</appender>
+	<!-- OSN响应时间异步日志 -->
+	<appender name="transRspOsnLog" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="1024" />
+		<param name="LocationInfo" value="true" />
+		<appender-ref ref="transRspOsn" />
+	</appender>
+
+	<!-- OSN错误详细日志 -->
+	<appender name="osnErrDetailApd" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="1024" />
+		<param name="LocationInfo" value="true" />
+		<appender-ref ref="osnErrDetail" />
+	</appender>
+
+	<!-- OSN记录中心超时日志 -->
+	<appender name="osnSCTimeoutApd" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="1024" />
+		<param name="LocationInfo" value="true" />
+		<appender-ref ref="osnSCTimeout" />
+	</appender>
+
+	<!-- 请求数据日志文件 -->
+	<appender name="transReqDlog" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/app/esb/log/OSN/OSN_TransReqDLog.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="100MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="com.tydic.esb.log4j.layout.ESBDlogFileLayout">
+		</layout>
+	</appender>
+	<appender name="transReqDlogAsyn" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="1024" />
+		<param name="LocationInfo" value="true" />
+		<appender-ref ref="transReqDlog" />
+	</appender>
+	<appender name="transConstErrLogAsyn" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="1024" />
+		<param name="LocationInfo" value="true" />
+		<appender-ref ref="transConstErrLog" />
+	</appender>
+	<category name="com.tydic" >
+		<level value="DEBUG" />
+	</category>
+
+	<logger name="transRspOsnLogger" additivity="false">
+		<level value="DEBUG"></level>
+		<appender-ref ref="transRspOsnLog" />
+	</logger>
+
+	<logger name="RECORD_TRANSPORT_LOG" additivity="false">
+		<level value="DEBUG"></level>
+		<appender-ref ref="ASYN_RECORD_TRANSPORT_LOG" />
+	</logger>
+
+	<logger name="osnErrDetailLogger" additivity="false">
+		<level value="DEBUG"></level>
+		<appender-ref ref="osnErrDetailApd" />
+	</logger>
+
+	<logger name="osnSCTimeoutLogger" additivity="false">
+		<level value="DEBUG"></level>
+		<appender-ref ref="osnSCTimeoutApd" />
+	</logger>
+
+	<!-- 中心超时同步日志 -->
+	<logger name="osnSCTimeoutSynLogger" additivity="false">
+		<level value="DEBUG"></level>
+		<appender-ref ref="osnSCTimeout" />
+	</logger>
+	<logger name="alarmInfoLogger" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="alarmInfo" />
+	</logger>
+
+	<logger name="osnDlogReqLogger" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="transReqDlogAsyn" />
+	</logger>
+	<logger name="transConstErrLogger" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="transConstErrLogAsyn" />
+	</logger>
+	<root>
+		<level value="WARN" />
+		<!-- appender-ref ref="CONSOLE" /> -->
+		<appender-ref ref="ASYN_LOGFILE" />
+	</root>
+</log4j:configuration>

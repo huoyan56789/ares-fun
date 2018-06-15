@@ -1,13 +1,18 @@
-package reflect;
+package entity;
 
 /**
  * @author Ares
  * @date 2018/4/25 10:36
  */
-public class Love
+public class Loved
 {
     private String name;
     private Integer reason;
+
+    public Loved(String name,Integer reason){
+        this.name = name;
+        this.reason = reason;
+    }
 
     public String getName()
     {
@@ -32,6 +37,6 @@ public class Love
     @Override
     public String toString()
     {
-        return "reflect.Love{" + "name='" + name + '\'' + ", reason=" + reason + '}';
+        return "entity.Love{" + "name='" + name + '\'' + ", reason=" + reason + '}';
     }
 }

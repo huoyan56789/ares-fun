@@ -3,6 +3,7 @@ package json;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import entity.Student;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class ObjectMapperTest
             //读取实体为字符串并写入文件
 //            File file = new File("D://writeJson.txt");
 //            mapper.writeValue(file,student);
-//            json.Student studentFile = mapper.readValue(file,json.Student.class);
+//            entity.Student studentFile = mapper.readValue(file,entity.Student.class);
 //            System.out.println("用文件映射的实体: " + studentFile);
 
             //将字符串读取为map,map中的null会写明为null，firm=  这种没有value的形式其实value是""(空串)
@@ -69,7 +70,7 @@ public class ObjectMapperTest
 
           JavaType javaType = objectMapper.getTypeFactory().constructParametricType(ArrayList.class, Student.class);
           List<Student> list =  objectMapper.readValue(listString, javaType);
-//        ArrayList<json.Student> list = objectMapper.readValue(listString,new TypeReference<List<json.Student>>() {});
+//        ArrayList<entity.Student> list = objectMapper.readValue(listString,new TypeReference<List<entity.Student>>() {});
           list.forEach(System.out::println);
         } catch (IOException e)
         {

@@ -1,4 +1,4 @@
-package json;
+package entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -64,7 +64,7 @@ public class Student {
     @Override
     public String toString()
     {
-        return "json.Student{" + "name='" + name + '\'' + ", age=" + age + ", sex='" + sex + '\'' + ", company='" + company + '\'' + '}';
+        return "entity.Student{" + "name='" + name + '\'' + ", age=" + age + ", sex='" + sex + '\'' + ", company='" + company + '\'' + '}';
     }
 }
 

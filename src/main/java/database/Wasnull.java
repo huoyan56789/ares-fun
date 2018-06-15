@@ -1,7 +1,7 @@
 package database;
 
 
-import json.Student;
+import entity.Student;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
