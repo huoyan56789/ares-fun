@@ -1,14 +1,16 @@
+
 /**
  * @author Ares
  * @date 2018/5/24 14:06
  */
-public class SwitchDemo
+public class Switch
 {
     public static void main(String[] args)
     {
         String str = "寂寞";
         String s = "孤独";
         String string = "哼";
+
 
         //不写break每个case都会走
 //        switch (str){

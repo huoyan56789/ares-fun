@@ -1,9 +1,5 @@
 package infc;
 
-import http.HeaderImpl;
-import infc.InterfaceDemo;
-import org.apache.http.Header;
-
 /**
  * @author Ares
  * @date 2018/5/30 9:36
@@ -13,7 +9,7 @@ public class InfcToString
     public static void main(String[] args)
     {
         InterfaceDemo infc = null;
-        //直接声明一个「接口」类型的变量时，此变量将拥有 Object 的所有方法
+        //直接声明一个「接口」类型的变量时，此变量将拥有 Object 的所有方法,但下面会报空指针异常
         System.out.println(infc.toString());
 
 //        //下面的写法错误，因为只声明了引用，没有实例化对象

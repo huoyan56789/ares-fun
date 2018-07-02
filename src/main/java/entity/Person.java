@@ -4,7 +4,7 @@ package entity;
  * @author Ares
  * @date 2018/6/14 16:09
  */
-public class Person
+public class Person implements Cloneable
 {
     private String name;
     private String gender;
@@ -45,6 +45,17 @@ public class Person
     public void setName(String name)
     {
         this.name = name;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Person{" + "name='" + name + '\'' + ", gender='" + gender + '\'' + ", age=" + age + '}';
+    }
+
+    public Object clone() throws CloneNotSupportedException
+    {
+        return super.clone();
     }
 }
 

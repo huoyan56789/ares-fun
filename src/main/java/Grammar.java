@@ -55,5 +55,6 @@ public class Grammar
         numToRight = num >>> 1;
         System.out.println(numToRight);
         System.out.println(Integer.toBinaryString(numToRight));
+
     }
 }
