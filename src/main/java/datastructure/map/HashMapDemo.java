@@ -1,7 +1,9 @@
 package datastructure.map;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Ares
@@ -145,7 +147,7 @@ public class HashMapDemo
         //        System.out.println(str);
 
 
-        //forEach时不能对map进行修改,但可以对其中的元素进行修改,如果想对alue进行遍历改变操作使用
+        //forEach时不能对map进行修改,但可以对其中的元素进行修改,如果想对value进行遍历改变操作使用
         // 下面的replaceAll和compute,也可以可以copy一个map进行修改
         //        map.put("love", "dear");
         //        map.put("ares", "xixi");
@@ -174,23 +176,23 @@ public class HashMapDemo
         System.out.println(map);
         System.out.println(map.put("hahaha", "miss"));
         System.out.println(map.put("hahaha", "miss you"));
-//        map.compute("love", (k,v) -> v.toString().toUpperCase());
-//        System.out.println(map);
-//        map.computeIfAbsent("di", k -> k.toString().toUpperCase());
-//        System.out.println(map);
+        //        map.compute("love", (k,v) -> v.toString().toUpperCase());
+        //        System.out.println(map);
+        //        map.computeIfAbsent("di", k -> k.toString().toUpperCase());
+        //        System.out.println(map);
 
         //key和value都可以为null
-//        map = new HashMap();
-//        map.put(1,"love");
-//        map.put(3,"ares");
-//        map.put(4,"xue");
-//        map.put(2,"bing");
-//        map.put(5,null);
-//        map.put(null,1);
-//        map.put(null,null);
-//        map.forEach((k,v) -> System.out.println("key:" + k + ",value:" + v));
+        //        map = new HashMap();
+        //        map.put(1, "love");
+        //        map.put(3, "ares");
+        //        map.put(4, "xue");
+        //        map.put(2, "bing");
+        //        map.put(5, null);
+        //        map.put(null, 1);
+        //        map.put(null, null);
+        //        map.forEach((k, v) -> System.out.println("key:" + k + ",value:" + v));
 
-
+        map.replaceAll((k, v) -> v.toString().toUpperCase());
     }
 
 }
