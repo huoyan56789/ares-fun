@@ -22,7 +22,7 @@ public class Reflect
              */
             //找寻该名称类文件，并加载进内存，并产生Class对象
             Class clazz = Class.forName("entity.Love");
-            //直接newInstance,class的newInstance本质上还是调用狗仔的newInstance
+            //直接newInstance,class的newInstance本质上还是调用构造器的newInstance
             Love love  = (Love) clazz.newInstance();
             System.out.println(love);
             //通过反射调用类中方法

@@ -85,10 +85,10 @@ public class Base64Impl
         System.out.println("自己实现的Base64解码后的字符串: " + strDecode);
 
         //jdk内部util，编码
-        String string = Base64.getEncoder().encodeToString(randomStr.getBytes());
-        System.out.println("jdkBase64编码后的字符串: " + string);
-        String stringDecode = new String(Base64.getDecoder().decode(string));
-        System.out.println("jdkBase64解码后的字符串: " + stringDecode);
+//        String string = Base64.getEncoder().encodeToString(randomStr.getBytes());
+//        System.out.println("jdkBase64编码后的字符串: " + string);
+//        String stringDecode = new String(Base64.getDecoder().decode(string));
+//        System.out.println("jdkBase64解码后的字符串: " + stringDecode);
 
     }
 }
