@@ -1,8 +1,7 @@
 package concurrentprogramming.bio;
 
-import netscape.javascript.JSUtil;
+
 import utils.JsUtils;
-import utils.permutation.Calculator;
 
 import java.io.BufferedReader;
 import java.io.IOException;

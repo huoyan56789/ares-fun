@@ -57,5 +57,13 @@ public class Person implements Cloneable
     {
         return super.clone();
     }
+
+    public void sayHello()
+    {
+        System.out.println("其实，我是一个好人");
+        System.out.println("我说的是真的");
+        System.out.println("相信我");
+        System.out.println("做人真累");
+    }
 }
 
